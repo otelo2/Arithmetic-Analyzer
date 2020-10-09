@@ -1,9 +1,11 @@
-//Arithmetic analyzer for the Theory of computation course
-//TODO: Add the ID's
+//Arithmetic analyzer for the Theory Of Computation course
+
+//TODO: recognize 555 as 555 instead of 5 5 5
+
 //José Antonio Solís Martínez. 162442
-//María Fernanda Flores Luna. 16XXXX
-//Mauricio Raul Tenorio Guzman. 16XXXX
-//Jorge André Tenorio Guzman. 16XXXX
+//María Fernanda Flores Luna. 162064
+//Mauricio Raul Tenorio Guzman. 162106
+//Jorge André Tenorio Guzman. 162107
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>

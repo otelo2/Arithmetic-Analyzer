@@ -11,6 +11,7 @@
 int main()
 {
     char string[60];
+    int ascii[60];
 
     printf("Input your arithmetic expression: ");
     fgets(string, 60, stdin);
@@ -18,6 +19,14 @@ int main()
     printf("Read:\n");
     puts(string);
 
+    printf("Starting conversion\n");
+    for (int i = 0; i <= strlen(string); i++)
+    {
+        //Typecast each character into an integers, hopefully ascii?
+        ascii[i] = (int)string[i];
+        printf("%c = %d\n",string[i], ascii[i]);
+    }
+    
 
     return 0;
 }

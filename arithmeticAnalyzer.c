@@ -9,11 +9,17 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<stdbool.h>
 
 int main()
 {
-    char string[60];
+    char string[60], temp[60]="";
     int ascii[60];
+    int finalArray[60];
+    int currentNumber=99999;
+    int countNumber=0;
+    int i, j, index=0;
+    bool first=true;
 
     printf("Input your arithmetic expression: ");
     fgets(string, 60, stdin);
@@ -21,62 +27,107 @@ int main()
     //printf("Read:\n");
     //puts(string);
 
-    for (int i = 0; i <= strlen(string); i++)
+    for (i = 0; i < strlen(string); i++)
     {
         //Typecast each character into an integer. ASCII
         ascii[i] = (int)string[i];
-        
+    }
+    
+
+    for (i = 0; i < strlen(string); i++)
+    {
+        for (j = 0; j < strlen(string); j++)
+        {
+            if (ascii[i] == ascii[j])
+            {
+                //Count times that it repeats
+                if (first == true)
+                {
+                    countNumber=1;
+                    printf("i = %d . j = %d ascii = %d . char = %c . countNumber = %d . first = %d\n",i,j,ascii[i], string[i], countNumber,first);
+                    first = false;
+                }
+                else
+                {
+                    countNumber++;
+                    printf("i = %d . j = %d ascii = %d . char = %c . countNumber = %d . first = %d\n",i,j,ascii[i], string[i], countNumber,first);
+                }
+            }
+            else
+            {
+                finalArray[index] = ascii[i];
+                index++;
+            }
+            
+        }
+        if (countNumber>1)
+        {
+            for (int k = 0; k < countNumber; k++)
+            {
+                strncat(temp, &string[i], 1);
+            }
+        }
+        printf("%s\n",temp);
+        printf("\n");
+        i = i+countNumber;
+        first=true;
+    }
+    
+
+    //printf("ascii = %d . char = %c . countNumber = %d\n",ascii[i], string[i], countNumber);
+    
+
+    for (int i = 0; i <= strlen(string); i++)
+    {
         //Ignore whitespaces, EOL, etc.
         if(ascii[i] > 32)
         {
-            //printf("%c = %d\n",string[i], ascii[i]);
-            printf("Token text: %c\n",string[i]);
-
             //We need to recognize the arithmetic operators by name (ADD, MULTIPLY, etc), numbers and letters are OPERAND
             switch (ascii[i])
             {
             // +
             case 43:
+                printf("Token text: %c\n",string[i]);
                 printf("Token lexical category: ADD\n");
                 break;
             // -
             case 45:
+                printf("Token text: %c\n",string[i]);
                 printf("Token lexical category: SUBTRACT\n");
                 break;
             // *
             case 42:
+                printf("Token text: %c\n",string[i]);
                 printf("Token lexical category: MULTIPLY\n");
                 break;
             // /
             case 47:
+                printf("Token text: %c\n",string[i]);
                 printf("Token lexical category: DIVIDE\n");
                 break;
             // %
             case 37:
+                printf("Token text: %c\n",string[i]);
                 printf("Token lexical category: MODULO\n");
                 break;
             // check if OPERAND. Yes I can have the following as just one if, but i want to ask if I can further specify what type of operand
+            //Is a number 0-9
+            case 48 ... 57:
+                printf("Token text: %c\n",string[i]);
+                printf("Token lexical category: OPERAND\n");
+                break;
+            //Is a letter A-Z
+            case 65 ... 90:
+                printf("Token text: %c\n",string[i]);
+                printf("Token lexical category: OPERAND\n");
+                break;
+            //Is a letter a-z
+            case 97 ... 122:
+                printf("Token text: %c\n",string[i]);
+                printf("Token lexical category: OPERAND\n");
+                break;
             default:
-                //Is a number 0-9
-                if (ascii[i] >= 48 && ascii[i] <= 57)
-                {
-                    printf("Token lexical category: OPERAND\n");
-                }
-                //Is a letter A-Z
-                else if (ascii[i] >= 65 && ascii[i] <= 90)
-                {
-                    printf("Token lexical category: OPERAND\n");
-                }
-                //Is a letter a-z
-                else if (ascii[i] >= 97 && ascii[i] <= 122)
-                {
-                    printf("Token lexical category: OPERAND\n");
-                }
-                else
-                {
-                    ; //Do nothing lol
-                }
-                
+                break;
                 
                 
             }

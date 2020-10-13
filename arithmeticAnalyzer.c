@@ -13,11 +13,13 @@
 
 int main()
 {
-    char string[60], temp[60]="";
+    char string[60];
+    char temp[60] = "";
     int ascii[60];
     int finalArray[60];
     int currentNumber=99999;
     int countNumber=0;
+    int valComplex=0;
     int i, j, index=0;
     bool first=true;
 
@@ -53,12 +55,6 @@ int main()
                     printf("i = %d . j = %d ascii = %d . char = %c . countNumber = %d . first = %d\n",i,j,ascii[i], string[i], countNumber,first);
                 }
             }
-            else
-            {
-                finalArray[index] = ascii[i];
-                index++;
-            }
-            
         }
         if (countNumber>1)
         {
@@ -110,11 +106,18 @@ int main()
                 printf("Token text: %c\n",string[i]);
                 printf("Token lexical category: MODULO\n");
                 break;
-            // check if OPERAND. Yes I can have the following as just one if, but i want to ask if I can further specify what type of operand
             //Is a number 0-9
             case 48 ... 57:
-                printf("Token text: %c\n",string[i]);
+                valComplex = ascii[i]-48; //Use the numerical value
+                i++;
+                while (ascii[i]>=48 && ascii[i]<=57)
+                {
+                    valComplex = (valComplex*10) + (ascii[i]-48);
+                    i++;
+                }
+                printf("Token text: %d\n",valComplex);
                 printf("Token lexical category: OPERAND\n");
+                valComplex=0;
                 break;
             //Is a letter A-Z
             case 65 ... 90:

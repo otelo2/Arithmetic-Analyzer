@@ -33,12 +33,9 @@ int main()
     {
         //Typecast each character into an integer. ASCII
         ascii[i] = (int)string[i];
+        //Print the info of each character for debugging
         printf("i = %d . ascii = %d . char = %c . countNumber = %d . first = %d\n",i,ascii[i], string[i], countNumber,first);
     }
-    
-
-    //printf("ascii = %d . char = %c . countNumber = %d\n",ascii[i], string[i], countNumber);
-    
 
     for (int i = 0; i <= strlen(string); i++)
     {
@@ -98,14 +95,10 @@ int main()
                 break;
             default:
                 break;
-                
-                
             }
             
         }
-
     }
     
-
     return 0;
 }

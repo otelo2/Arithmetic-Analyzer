@@ -33,40 +33,7 @@ int main()
     {
         //Typecast each character into an integer. ASCII
         ascii[i] = (int)string[i];
-    }
-    
-
-    for (i = 0; i < strlen(string); i++)
-    {
-        for (j = 0; j < strlen(string); j++)
-        {
-            if (ascii[i] == ascii[j])
-            {
-                //Count times that it repeats
-                if (first == true)
-                {
-                    countNumber=1;
-                    printf("i = %d . j = %d ascii = %d . char = %c . countNumber = %d . first = %d\n",i,j,ascii[i], string[i], countNumber,first);
-                    first = false;
-                }
-                else
-                {
-                    countNumber++;
-                    printf("i = %d . j = %d ascii = %d . char = %c . countNumber = %d . first = %d\n",i,j,ascii[i], string[i], countNumber,first);
-                }
-            }
-        }
-        if (countNumber>1)
-        {
-            for (int k = 0; k < countNumber; k++)
-            {
-                strncat(temp, &string[i], 1);
-            }
-        }
-        printf("%s\n",temp);
-        printf("\n");
-        i = i+countNumber;
-        first=true;
+        printf("i = %d . ascii = %d . char = %c . countNumber = %d . first = %d\n",i,ascii[i], string[i], countNumber,first);
     }
     
 

@@ -1,7 +1,5 @@
 //Arithmetic analyzer for the Theory Of Computation course
 
-//TODO: recognize 555 as 555 instead of 5 5 5
-
 //José Antonio Solís Martínez. 162442
 //María Fernanda Flores Luna. 162064
 //Mauricio Raul Tenorio Guzman. 162106
@@ -16,12 +14,9 @@ int main()
     char string[60];
     char temp[60] = "";
     int ascii[60];
-    int finalArray[60];
-    int currentNumber=99999;
-    int countNumber=0;
     int valComplex=0;
-    int i, j, index=0;
-    bool first=true;
+    int i;
+
 
     printf("Input your arithmetic expression: ");
     fgets(string, 60, stdin);
@@ -34,7 +29,7 @@ int main()
         //Typecast each character into an integer. ASCII
         ascii[i] = (int)string[i];
         //Print the info of each character for debugging
-        printf("i = %d . ascii = %d . char = %c . countNumber = %d . first = %d\n",i,ascii[i], string[i], countNumber,first);
+        printf("i = %d . ascii = %d . char = %c . \n",i,ascii[i], string[i]);
     }
 
     for (int i = 0; i <= strlen(string); i++)
@@ -73,8 +68,7 @@ int main()
             //Is a number 0-9
             case 48 ... 57:
                 valComplex = ascii[i]-48; //Use the numerical value
-                i++;
-                while (ascii[i]>=48 && ascii[i]<=57)
+                while (ascii[i+1]>=48 && ascii[i+1]<=57)
                 {
                     valComplex = (valComplex*10) + (ascii[i]-48);
                     i++;

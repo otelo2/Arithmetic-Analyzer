@@ -29,7 +29,7 @@ int main()
         //Typecast each character into an integer. ASCII
         ascii[i] = (int)string[i];
         //Print the info of each character for debugging
-        printf("i = %d . ascii = %d . char = %c . \n",i,ascii[i], string[i]);
+        //printf("i = %d . ascii = %d . char = %c . \n",i,ascii[i], string[i]);
     }
 
     for (int i = 0; i <= strlen(string); i++)

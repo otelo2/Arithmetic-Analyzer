@@ -74,18 +74,18 @@ int main()
                     i++;
                 }
                 printf("Token text: %d\n",valComplex);
-                printf("Token lexical category: OPERAND\n");
+                printf("Token lexical category: OPERAND (NUMBER)\n");
                 valComplex=0;
                 break;
             //Is a letter A-Z
             case 65 ... 90:
                 printf("Token text: %c\n",string[i]);
-                printf("Token lexical category: OPERAND\n");
+                printf("Token lexical category: OPERAND (VARIABLE)\n");
                 break;
             //Is a letter a-z
             case 97 ... 122:
                 printf("Token text: %c\n",string[i]);
-                printf("Token lexical category: OPERAND\n");
+                printf("Token lexical category: OPERAND (VARIABLE)\n");
                 break;
             default:
                 break;

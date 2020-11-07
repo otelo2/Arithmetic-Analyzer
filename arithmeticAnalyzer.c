@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
                 valComplex = ascii[i]-48; //Use the numerical value
                 while (ascii[i+1]>=48 && ascii[i+1]<=57)
                 {
-                    valComplex = (valComplex*10) + (ascii[i]-48);
+                    valComplex = (valComplex*10) + (ascii[i+1]-48);
                     i++;
                 }
                 printf("Token text: %d\n",valComplex);

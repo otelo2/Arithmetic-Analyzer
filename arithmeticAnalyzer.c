@@ -9,17 +9,26 @@
 #include<string.h>
 #include<stdbool.h>
 
-int main()
+int main(int argc, char *argv[])
 {
-    char string[60];
-    char temp[60] = "";
-    int ascii[60];
+    char string[100]="";
+    char temp[100] = "";
+    int ascii[100];
     int valComplex=0;
-    int i;
+    int i, j;
 
-
-    printf("Input your arithmetic expression: ");
-    fgets(string, 60, stdin);
+    if (argc <= 1) //Has no arguments
+    {
+        printf("Input your arithmetic expression: ");
+        fgets(string, 100, stdin);
+    }
+    else
+    {
+        for (j = 1; j < argc; j++)
+        {
+            strcat(string, argv[j]);
+        }
+    }
 
     //printf("Read:\n");
     //puts(string);
